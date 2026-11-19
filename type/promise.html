@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诚信承诺书</title>
+    <meta name="description" content="">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .pledge-page {
+            min-height: 100vh;
+            background:
+                radial-gradient(720px 420px at 82% -8%, rgba(201, 162, 75, 0.16), transparent 70%),
+                radial-gradient(640px 460px at 8% 104%, rgba(42, 138, 112, 0.10), transparent 72%),
+                #f8f4ea;
+            display: flex;
+            flex-direction: column;
+        }
+
+    
+        .pledge-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 18px 0;
+            width: min(1080px, 92%);
+            margin: 0 auto;
+        }
+        .pledge-top .p-logo img {
+            height: 40px;
+            width: auto;
+        }
+        .pledge-top .p-back {
+            font-size: 14px;
+            color: var(--green-deep);
+            text-decoration: none;
+            padding: 8px 18px;
+            border: 1px solid rgba(23, 94, 76, 0.24);
+            border-radius: 24px;
+            transition: background 0.25s, color 0.25s, border-color 0.25s;
+        }
+        .pledge-top .p-back:hover {
+            background: var(--green-deep);
+            border-color: var(--green-deep);
+            color: #fff;
+        }
+
+  
+        .pledge-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 0 64px;
+        }
+        .pledge-card {
+            width: min(760px, 92%);
+            background: #fffdf9;
+            border-radius: 20px;
+            padding: 46px 52px 42px;
+            box-shadow: 0 24px 60px rgba(23, 94, 76, 0.13), 0 2px 0 rgba(201, 162, 75, 0.55) inset;
+            position: relative;
+            overflow: hidden;
+        }
+        .pledge-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-deep), var(--gold));
+            opacity: 0.85;
+        }
+        .pledge-en {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-align: center;
+        }
+        .pledge-card h1 {
+            font-size: 31px;
+            letter-spacing: 5px;
+            color: var(--green-deep);
+            text-align: center;
+            margin: 10px 0 14px;
+            font-weight: 700;
+        }
+        .pledge-rule {
+            width: 64px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto 24px;
+        }
+        .pledge-lead {
+            font-size: 15px;
+            color: var(--gray);
+            text-align: center;
+            line-height: 1.9;
+            margin-bottom: 26px;
+        }
+
+        /* ---------- 三条承诺 ---------- */
+        .pledge-terms {
+            list-style: none;
+            counter-reset: term;
+            margin-bottom: 30px;
+        }
+        .pledge-terms li {
+            counter-increment: term;
+            position: relative;
+            padding: 14px 18px 14px 58px;
+            margin-bottom: 10px;
+            background: #f6f9f7;
+            border-radius: 12px;
+            font-size: 14.5px;
+            line-height: 1.85;
+            color: #3a4a44;
+        }
+        .pledge-terms li::before {
+            content: counter(term);
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--green-deep);
+            color: #fff;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pledge-terms b {
+            color: var(--green-deep);
+        }
+
+        /* ---------- 表单 ---------- */
+        .pledge-field {
+            display: block;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: var(--gray);
+        }
+        .pledge-field input[type="text"] {
+            display: block;
+            width: 100%;
+            margin-top: 8px;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--ink);
+            background: #fff;
+            border: 1px solid rgba(23, 94, 76, 0.20);
+            border-radius: 10px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .pledge-field input[type="text"]:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(42, 138, 112, 0.12);
+        }
+        .pledge-agree {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: #3a4a44;
+            margin: 22px 0 24px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .pledge-agree input {
+            appearance: none;
+            -webkit-appearance: none;
+            flex: 0 0 18px;
+            width: 18px;
+            height: 18px;
+            margin-top: 4px;
+            border: 1.5px solid rgba(23, 94, 76, 0.38);
+            border-radius: 4px;
+            background: #fff;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .pledge-agree input:checked {
+            background: var(--green-deep);
+            border-color: var(--green-deep);
+        }
+        .pledge-agree input:checked::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 5px;
+            height: 9px;
+            border: 2px solid #fff;
+            border-top: 0;
+            border-left: 0;
+            transform: rotate(42deg);
+        }
+        .pledge-submit {
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            font-size: 16px;
+            font-family: inherit;
+            letter-spacing: 4px;
+            color: #fff;
+            background: linear-gradient(135deg, #d8b164, #c9a24b);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 24px rgba(201, 162, 75, 0.34);
+            transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s;
+        }
+        .pledge-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(201, 162, 75, 0.42);
+        }
+        .pledge-submit:disabled {
+            opacity: 0.55;
+            cursor: default;
+            transform: none;
+            box-shadow: none;
+        }
+        .pledge-tip {
+            min-height: 22px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--red);
+            text-align: center;
+        }
+
+        /* ---------- 成功态 ---------- */
+        .pledge-success {
+            text-align: center;
+        }
+        .pledge-success .ps-mark {
+            width: 62px;
+            height: 62px;
+            margin: 4px auto 20px;
+            border-radius: 50%;
+            border: 2px solid var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green-deep);
+            font-size: 26px;
+            letter-spacing: 0;
+        }
+        .pledge-success h2 {
+            font-size: 22px;
+            letter-spacing: 2px;
+            color: var(--green-deep);
+            margin-bottom: 10px;
+        }
+        .pledge-success .ps-line {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 2;
+        }
+        .pledge-success .ps-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 26px;
+        }
+        .ps-btn {
+            display: inline-block;
+            padding: 11px 30px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            border-radius: 26px;
+            text-decoration: none;
+            transition: background 0.25s, color 0.25s, border-color 0.25s;
+        }
+        .ps-btn.solid {
+            background: var(--green-deep);
+            color: #fff;
+        }
+        .ps-btn.solid:hover {
+            background: #0f4a3c;
+        }
+        .ps-btn.ghost {
+            color: var(--green-deep);
+            border: 1px solid rgba(23, 94, 76, 0.28);
+        }
+        .ps-btn.ghost:hover {
+            background: var(--green-deep);
+            border-color: var(--green-deep);
+            color: #fff;
+        }
+        /* ---------- 页脚 ---------- */
+        .pledge-foot {
+            text-align: center;
+            padding: 0 0 30px;
+            font-size: 12px;
+            color: rgba(23, 94, 76, 0.62);
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 640px) {
+            .pledge-card {
+                padding: 30px 22px 26px;
+                border-radius: 16px;
+            }
+            .pledge-card h1 {
+                font-size: 24px;
+                letter-spacing: 3px;
+            }
+            .pledge-terms li {
+                padding: 12px 14px 12px 48px;
+                font-size: 13.5px;
+            }
+            .pledge-terms li::before {
+                left: 12px;
+                width: 24px;
+                height: 24px;
+            }
+            .pledge-submit {
+                letter-spacing: 2px;
+            }
+            .pledge-top {
+                padding: 12px 0;
+            }
+            .pledge-top .p-logo img {
+                height: 32px;
+            }
+        }
+    </style>
+</head>
+<body class="pledge-page">
+
+    <header class="pledge-top">
+        <a class="p-logo" href="index.html" aria-label="返回心沐清风 青春净芯首页">
+            <img src="images/logo-dark.png" alt="">
+        </a>
+        <a class="p-back" href="index.html">← 返回首页</a>
+    </header>
+
+    <main class="pledge-main">
+        <div class="pledge-card">
+            <div id="pledgeForm">
+                <span class="pledge-en">ACADEMIC INTEGRITY PLEDGE</span>
+                <h1>学术诚信承诺书</h1>
+                <div class="pledge-rule"></div>
+                <p class="pledge-lead">作为桂林师范学院数学与计算机学院的一员，<br>我自愿作出以下承诺：</p>
+
+                <ol class="pledge-terms">
+                    <li><b>诚信考试</b>——不夹带、不抄袭、不交头接耳，以真实水平走进每一场考试。</li>
+                    <li><b>诚信为学</b>——引用必注明出处，数据必须可溯，不伪造实验与代码结果，不参与代写。</li>
+                    <li><b>清白做人</b>——不贪小利、不慕虚名，发现学术不端的苗头，敢于提醒身边同学。</li>
+                </ol>
+
+                <label class="pledge-field" for="pledgeName">署名（选填）
+                    <input type="text" id="pledgeName" maxlength="12" placeholder="留空将以“佚名同学”记录">
+                </label>
+
+                <label class="pledge-agree" for="pledgeAgree">
+                    <input type="checkbox" id="pledgeAgree">
+                    <span>我已认真阅读以上三条承诺，并自愿遵守</span>
+                </label>
+
+                <button class="pledge-submit" id="pledgeSubmit" type="button">郑 重 承 诺</button>
+                <p class="pledge-tip" id="pledgeTip"></p>
+            </div>
+
+            <div class="pledge-success" id="pledgeDone" hidden>
+                <div class="ps-mark">✓</div>
+                <h2>已承诺</h2>
+                <p class="ps-line">你是第 <b id="psCount">1</b> 位在本站作出学术诚信承诺的同学。</p>
+                <div class="ps-actions">
+                    <a class="ps-btn solid" href="honesty.html#promise">返回首页</a>
+                    <a class="ps-btn ghost" href="wish.html">去写一句廉洁寄语</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="pledge-foot">心沐清风 · 青春净芯　|　清风沐校园 · 廉洁润初心</div>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var KEY_COUNT = 'qingfeng_promise_count';
+            var KEY_DONE = 'qingfeng_promise_done';
+            var KEY_NAME = 'qingfeng_promise_name';
+
+            var store = (function () {
+                try {
+                    var ls = window.localStorage;
+                    ls.setItem('__probe__', '1');
+                    ls.removeItem('__probe__');
+                    return ls;
+                } catch (e) {
+                    var mem = Object.create(null);
+                    return {
+                        getItem: function (k) {
+                            return Object.prototype.hasOwnProperty.call(mem, k) ? mem[k] : null;
+                        },
+                        setItem: function (k, v) { mem[k] = String(v); },
+                        removeItem: function (k) { delete mem[k]; }
+                    };
+                }
+            })();
+
+            var elForm = document.getElementById('pledgeForm');
+            var elDone = document.getElementById('pledgeDone');
+            var elName = document.getElementById('pledgeName');
+            var elAgree = document.getElementById('pledgeAgree');
+            var elSubmit = document.getElementById('pledgeSubmit');
+            var elTip = document.getElementById('pledgeTip');
+            var elCount = document.getElementById('psCount');
+
+            function pad(n) {
+                return (n < 10 ? '0' : '') + n;
+            }
+
+            function showDone() {
+                var count = parseInt(store.getItem(KEY_COUNT), 10);
+                elCount.textContent = (isNaN(count) || count < 1) ? 1 : count;
+                elForm.hidden = true;
+                elDone.hidden = false;
+            }
+
+            elSubmit.addEventListener('click', function () {
+                if (!elAgree.checked) {
+                    elTip.textContent = '请先勾选“我已认真阅读以上三条承诺”。';
+                    elAgree.focus();
+                    return;
+                }
+                var count = parseInt(store.getItem(KEY_COUNT), 10);
+                if (isNaN(count) || count < 0) { count = 0; }
+                count = count + 1;
+
+                store.setItem(KEY_COUNT, String(count));
+                store.setItem(KEY_DONE, '1');
+                store.setItem(KEY_NAME, elName.value.trim() || '佚名同学');
+
+                showDone();
+            });
+
+            elAgree.addEventListener('change', function () {
+                if (elAgree.checked) { elTip.textContent = ''; }
+            });
+
+            if (store.getItem(KEY_DONE) === '1') {
+                showDone();
+            }
+        })();
+    </script>
+</body>
+</html>

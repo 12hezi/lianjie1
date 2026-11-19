@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#175e4c">
+    <title>廉洁寄语</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="廉洁寄语墙 · 心沐清风 青春净芯">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="images/hero-bg.jpg">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body class="page p-wish">
+   
+    <header class="navbar" id="navbar" data-theme="light">
+        <div class="container nav-inner">
+            <a href="index.html" class="brand">
+                <img src="images/logo.png" alt="" class="brand-logo logo-on-dark">
+                <img src="images/logo-dark.png" alt="" aria-hidden="true" class="brand-logo logo-on-light">
+            </a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="intro.html">何为廉洁</a></li>
+                    <li><a href="history.html">校史清廉</a></li>
+                    <li><a href="people.html">人物事迹</a></li>
+                    <li><a href="story.html">校园故事</a></li>
+                    <li><a href="honesty.html">学术诚信</a></li>
+                    <li><a href="warning.html">警示镜鉴</a></li>
+                    <li><a href="wish.html" class="active">廉洁寄语</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="打开菜单">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+    <main class="page-main">
+        <section id="wish">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="en">MESSAGES</span>
+                <h2>廉洁寄语墙</h2>
+                <div class="line"></div>
+                <p>写下一句廉洁寄语，与同窗共勉：一身正气走天下，两袖清风启前程。</p>
+            </div>
+            <div id="wishApp">
+                
+                <form class="wish-form reveal" onsubmit="return false">
+                    <input type="text" placeholder="你的称呼（选填）" maxlength="12">
+                    <input type="text" placeholder="写下你的廉洁寄语…" maxlength="50">
+                    <button type="submit" class="btn btn-primary">发布寄语</button>
+                </form>
+                <div class="wish-wall">
+                    <div class="wish-item reveal">
+                        <p>愿吾辈以清白立身，以勤学立业，清风常伴左右。</p>
+                        <div class="who">—— 佚名同学</div>
+                    </div>
+                    <div class="wish-item reveal">
+                        <p>不贪一时之利，不负四年青春，诚信考试，踏实做人。</p>
+                        <div class="who">—— 一名在校生</div>
+                    </div>
+                    <div class="wish-item reveal">
+                        <p>俭以养德，廉以养心，愿校园处处皆是清风正气。</p>
+                        <div class="who">—— 佚名同学</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="page-foot">清风两袖朝天去，免得闾阎话短长<em>—— 于谦《入京》</em></footer>
+
+    <script src="vendor/vue.global.prod.js"></script>
+    <script src="script.js"></script>
+    <script src="js/vue-app.js"></script>
+</body>
+</html>
